@@ -1,0 +1,22 @@
+version: '3'
+services:
+  flyway:
+    image: flyway/flyway
+    command: -configFiles=/flyway/conf/flyway.conf -locations=filesystem:/flyway/sql -connectRetries=60 -schemas=public migrate
+    depends_on:
+      - postgres
+    volumes:
+      - $PWD/src/migrations:/flyway/sql
+      - $PWD/volumes/conf:/flyway/conf
+  postgres:
+    image: "postgres"
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PsASSWORD=admin
+      - POSTGRES_DB=postgres
+    volumes:
+      - $PWD/volumes/data/postgres:/var/lib/postgresql/data
+      - $PWD/volumes/usda:/opt
