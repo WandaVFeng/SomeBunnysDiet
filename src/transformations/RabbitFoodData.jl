@@ -15,8 +15,7 @@ using Statistics
 #@time begin
 
 # Directories ==================================================================
-dirdata = "/Users/wandafeng/Desktop/Rabbit_Food_data/"
-USDA_dirdata = dirdata*"FoodData_Central_csv_2020-10-30/"
+USDA_dirdata = "/opt/"
 
 # Read files ===================================================================
 # USDA all data ----------------------------------------------------------------

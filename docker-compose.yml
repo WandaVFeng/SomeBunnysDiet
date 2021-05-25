@@ -20,3 +20,8 @@ services:
     volumes:
       - $PWD/volumes/data/postgres:/var/lib/postgresql/data
       - $PWD/volumes/usda:/opt
+  julia:
+    build: "./src/ide"
+    volumes:
+      - $PWD/volumes/usda:/opt
+      - $PWD/src/transformations:/tmp
