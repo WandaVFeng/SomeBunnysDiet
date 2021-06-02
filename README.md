@@ -17,6 +17,18 @@ Initialize
 docker-compose up
 ```
 
+Drop into the julia container's shell.
+```
+docker-compose run julia bash
+```
+
+Note how src/transformations on the host is mapped to /tmp in the container
+Note how volumes/usda on the host is mapped to /opt in the container
+```
+julia /tmp/RabbitFoodData.jl
+```
+
+
 Drop into database container's shell.
 ```
 docker-compose run postgres bash
